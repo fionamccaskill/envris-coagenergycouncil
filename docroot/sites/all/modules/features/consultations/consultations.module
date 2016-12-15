@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Consultations feature.
+ */
+
+include_once 'consultations.features.inc';

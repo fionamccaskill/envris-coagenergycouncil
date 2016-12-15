@@ -1,0 +1,7 @@
+name = Views File Extension Filter
+description = Provides a file extensions filter and handler for Views.
+core = 7.x
+package = Views
+dependencies[] = views
+dependencies[] = file_entity
+files[] = views_handler_filter_file_extension.inc

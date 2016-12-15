@@ -1,0 +1,10 @@
+name = Energy Council: About block
+description = Provides a short 'About this site' block for the footer of the site.
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = energy_council_about_block
+dependencies[] = fe_block
+features[fe_block_boxes][] = about_this_site
+features[fe_block_settings][] = block-about_this_site
+features[features_api][] = api:2

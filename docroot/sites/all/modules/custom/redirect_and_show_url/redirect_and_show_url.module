@@ -1,0 +1,82 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+
+/*Menu Link */
+function redirect_and_show_url_menu() {
+    $items = array();
+
+    $items['admin/config/system/redirect/url'] = array(
+        'title' => 'Redirect to secure URL',
+        'description' => 'Configure the URL redirection. Take note to edit the block.',
+        'access arguments' => FALSE,
+        'access callback' => TRUE,
+        'page callback' => 'redirect_page',
+
+    );
+    $items['admin/config/system/redirect/url/on'] = array(
+        'title' => 'Enable Redirect',
+        'description' => 'Turn on',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('redirect_and_show_url_settings_on'),
+        'access arguments' => array('administer site configuration'),
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+
+    );
+      $items['admin/config/system/redirect/url/off'] = array(
+        'title' => 'Disable Redirect',
+        'description' => 'Turn off',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('redirect_and_show_url_settings_off'),
+        'access arguments' => array('administer site configuration'),
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+
+    );
+
+     return $items;
+}
+
+
+
+
+/*Page redirect to change URL settings in rule*/
+function redirect_page() {
+    drupal_goto($path = 'admin/config/workflow/rules/reaction/manage/rules_login_redirect_to_st/edit/3');
+}
+
+/*Description text*/
+function redirect_and_show_url_form_alter(&$form, &$form_state, $form_id){
+    switch ($form_id) {
+  case 'rules_ui_edit_element':
+  $form['parameter']['url']['#description'] = t('Replace <strong>SITENAME</strong> in the textbox below with the live URL. eg: https://prod-minister-industry-gov-au.industry.slicedtech.com.au/user.<br><br> <strong>Please complete the URL inside the block called <a href="/admin/structure/block">"Live Link"</a></strong>');
+  break;
+}
+}
+
+/* Turn rule on or off */
+
+  function redirect_and_show_url_settings_on(){
+        $options = array('query' => array('destination' => 'admin/config/workflow/rules'));
+ drupal_goto($path = 'admin/config/workflow/rules/reaction/manage/4/enable', $options);
+}
+
+  function redirect_and_show_url_settings_off(){
+    $options = array('query' => array('destination' => 'admin/config/workflow/rules'));
+ drupal_goto($path = 'admin/config/workflow/rules/reaction/manage/4/disable', $options);
+}
+
+
+
+function redirect_and_show_url_help($path, $arg) {
+switch ($path) {
+    case 'admin/help#redirect_and_show_url':
+      $output = file_get_contents(drupal_get_path('module', 'redirect_and_show_url') . '/readme.txt');
+       return module_exists('markdown') ? filter_xss_admin(module_invoke('markdown', 'filter', 'process', 0, -1, $output)) : '<pre>' . check_plain($output) . '</pre>';
+      return $output;
+  }
+}
+

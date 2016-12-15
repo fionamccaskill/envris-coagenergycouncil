@@ -1,0 +1,16 @@
+name = Energy Council: Council Priorities
+description = Bits and pieces related to Council Priorities.
+core = 7.x
+package = Features
+version = 7.x-1.1
+dependencies[] = page_manager
+dependencies[] = views
+dependencies[] = views_content
+dependencies[] = views_tree
+features[ctools][] = page_manager:pages_default:1
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[page_manager_handlers][] = term_view__council_priorities
+features[page_manager_pages][] = council_priorities
+features[views_view][] = council_priorities
+features_exclude[dependencies][ctools] = ctools

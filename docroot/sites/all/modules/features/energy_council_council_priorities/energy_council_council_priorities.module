@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Energy Council: Council Priorities feature.
+ */
+
+include_once 'energy_council_council_priorities.features.inc';

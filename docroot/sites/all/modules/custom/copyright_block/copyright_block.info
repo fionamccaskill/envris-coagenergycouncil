@@ -1,0 +1,4 @@
+name = Copyright block
+description = A block to display copyright information for the current year.
+core = 7.x
+package = Miscellaneous

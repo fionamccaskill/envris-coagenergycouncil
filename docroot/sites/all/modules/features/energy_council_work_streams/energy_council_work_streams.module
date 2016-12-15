@@ -1,0 +1,18 @@
+<?php
+/**
+ * @file
+ * Code for the Energy Council: Work Streams feature.
+ */
+
+include_once 'energy_council_work_streams.features.inc';
+
+/**
+ * Implements hook_help().
+ */
+function energy_council_work_streams_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#energy_council_work_streams':
+      $output = file_get_contents(drupal_get_path('module', 'energy_council_work_streams') . '/README.txt');
+      return module_exists('markdown') ? filter_xss_admin(module_invoke('markdown', 'filter', 'process', 0, -1, $output)) : '<pre>' . check_plain($output) . '</pre>';
+  }
+}

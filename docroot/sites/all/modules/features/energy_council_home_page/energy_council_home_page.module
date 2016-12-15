@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Energy Council Home Page feature.
+ */
+
+include_once 'energy_council_home_page.features.inc';

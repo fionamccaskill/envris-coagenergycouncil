@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Energy Council News List feature.
+ */
+
+include_once 'energy_council_news_list.features.inc';

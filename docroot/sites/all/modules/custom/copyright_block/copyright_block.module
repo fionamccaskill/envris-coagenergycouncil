@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * Implements hook_block_info()
+ */
+
+function copyright_block_block_info() {
+	$blocks['copyright_block'] = array(
+		'info' => t('Copyright Block'),
+		'cache' => DRUPAL_CACHE_PER_ROLE,
+	);
+	return $blocks;
+}
+
+/**
+ * Implements hook_block_view()
+ */
+
+function copyright_block_block_view($delta = '') {
+
+	switch ($delta) {
+		case 'copyright_block':
+			$year = date('Y');
+			$block['subject'] = t('Copyright Block');
+			$block['content']['body'] = array(
+				'#prefix' => '<p>',
+				'#markup' => t('&copy; Copyright ' . $year . ' Commonwealth of Australia'),
+				'#suffix' => '</p>',
+			);
+		break;
+	}
+	return $block;
+}

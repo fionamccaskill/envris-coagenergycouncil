@@ -1,0 +1,6 @@
+name = Energy Council Mailchimp
+description = Mailchimp subscription bock
+core = 7.x
+package = Features
+version = 7.x-2.0
+project = energy_council_mailchimp
